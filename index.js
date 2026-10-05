@@ -12,6 +12,7 @@
  */
 export function getCohort(student) {
   // TODO
+  return student.cohort;
 }
 
 /**
@@ -31,6 +32,11 @@ export function getCohort(student) {
  */
 export function sortStudents(studentA, studentB) {
   // TODO
+  if (studentA.name <= studentB.name) {
+    return studentA;
+  } else {
+    return studentB;
+  }
 }
 
 /**
@@ -48,6 +54,10 @@ export function sortStudents(studentA, studentB) {
  */
 export function makeFlag(color, icon) {
   // TODO
+  return {
+    color: color,
+    icon: icon
+  }
 }
 
 /**
@@ -64,6 +74,9 @@ export function makeFlag(color, icon) {
  */
 export function increment(count) {
   // TODO
+  return {
+    value: count.value + 1
+  }
 }
 
 /**
@@ -91,6 +104,9 @@ export function increment(count) {
  */
 export function getTaxicabDistance(from, to) {
   // TODO
+  const xDistance = Math.abs(from.x - to.x);
+  const yDistance = Math.abs(from.y - to.y);
+  return xDistance + yDistance;
 }
 
 /**
@@ -107,6 +123,13 @@ export function getTaxicabDistance(from, to) {
  */
 export function getHerbivores(animals) {
   // TODO
+  let herbivores = [];
+  for (const animal of animals) {
+    if (animal.isHerbivore) {
+      herbivores.push(animal);
+    }
+  }
+  return herbivores;
 }
 
 /**
@@ -123,6 +146,13 @@ export function getHerbivores(animals) {
  */
 export function getCarnivoreNames(animals) {
   // TODO
+  let carnivoreNames = [];
+  for (const animal of animals) {
+    if (animal.isCarnivore) {
+      carnivoreNames.push(animal.name);
+    }
+  }
+  return carnivoreNames;
 }
 
 /**
@@ -144,6 +174,11 @@ export function getCarnivoreNames(animals) {
  */
 export function getTotalCost(cart) {
   // TODO
+  let total = 0;
+  for (const item of cart) {
+    total += item.quantity * item.price;
+  }
+  return total;
 }
 
 /**
@@ -164,6 +199,11 @@ export function getTotalCost(cart) {
  */
 export function zip(keys, values) {
   // TODO
+  let result = {};
+  for (let i = 0; i < keys.length; i++) {
+    result[keys[i]] = values[i];
+  }
+  return result;
 }
 
 /**
@@ -180,4 +220,13 @@ export function zip(keys, values) {
  */
 export function countCharacters(word) {
   // TODO
+  let counts = {};
+  for (const character of word) {
+    if (counts[character]) {
+      counts[character]++;
+    } else {
+      counts[character] = 1;
+    }
+  }
+  return counts;
 }
